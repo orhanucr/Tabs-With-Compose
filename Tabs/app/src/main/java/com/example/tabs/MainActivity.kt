@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -109,8 +110,9 @@ fun TabsContent(tabs: List<TabItem>, pagerState: PagerState){
 @Composable
 fun HomeScreen() {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().background(Color.LightGray),
         contentAlignment = Alignment.Center
+
     ) {
         Text(
             text = "Home Screen",
@@ -124,7 +126,7 @@ fun HomeScreen() {
 @Composable
 fun ProfileScreen() {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().background(Color.Gray),
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -139,7 +141,7 @@ fun ProfileScreen() {
 @Composable
 fun SettingsScreen() {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().background(Color.DarkGray),
         contentAlignment = Alignment.Center
     ) {
         Text(
