@@ -10,9 +10,8 @@ implementation("com.google.accompanist:accompanist-pager-indicators:0.17.0")
 
 <h2>Uygulama Ekran Görüntüleri</h2>
 <p float="left">
-  <img src=https://github.com/orhanucr/Tabs-With-Compose/assets/100219838/bb7dce2d-083e-4408-ab8f-34c6c843d7d2 width="30%" />
-  <img src=https://github.com/orhanucr/Tabs-With-Compose/assets/100219838/2c2001c4-8956-41b8-9dd1-dad631c09850 width="30%" />
-  <img src=https://github.com/orhanucr/Tabs-With-Compose/assets/100219838/8377abfe-1e54-426d-9531-2c81fc618c32 width="30%" />
+  <img src=https://github.com/orhanucr/Tabs-With-Compose/assets/100219838/223630d9-34f9-41de-8cc2-3fac1b088f7d width="30%" />
+  <img src=https://github.com/orhanucr/Tabs-With-Compose/assets/100219838/1c89f2bc-1c64-4b16-a7ce-9857908f4b1e width="30%" />
+  <img src=https://github.com/orhanucr/Tabs-With-Compose/assets/100219838/c140ced0-6b1a-4b10-abe9-0d93c233a917 width="30%" />
 </p>
-
 
