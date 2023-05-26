@@ -1,6 +1,5 @@
 package com.example.tabs
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -16,7 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.tabs.ui.theme.TabsTheme
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
 
@@ -25,13 +27,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-            MainScreen()
+            TabsTheme {
+                MainScreen()
+            }
 
         }
     }
 }
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @OptIn(ExperimentalPagerApi::class, ExperimentalMaterialApi::class)
 @Composable
 fun MainScreen() {
@@ -45,19 +48,20 @@ fun MainScreen() {
     val pagerState = rememberPagerState(pageCount = tabs.size)
 
     Scaffold(
-        topBar = { TopBar()}
-    ) {
-        Column() {
-            Tabs(tabs = tabs, pagerState = pagerState)
-            TabsContent(tabs = tabs, pagerState = pagerState)
+        topBar = { TopBar() },
+        content = {
+            Column(modifier = Modifier.padding(it)) {
+                Tabs(tabs = tabs, pagerState = pagerState)
+                TabsContent(tabs = tabs, pagerState = pagerState)
 
+            }
         }
-    }
+    )
 
 }
 
 @Composable
-fun TopBar(){
+fun TopBar() {
 
     TopAppBar(
         title = { Text(text = "Tabs", fontSize = 18.sp) },
@@ -70,7 +74,7 @@ fun TopBar(){
 @ExperimentalMaterialApi
 @ExperimentalPagerApi
 @Composable
-fun Tabs(tabs: List<TabItem>, pagerState: PagerState){
+fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
 
     val scope = rememberCoroutineScope()
     TabRow(
@@ -83,7 +87,7 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState){
             )
         }
     ) {
-        tabs.forEachIndexed{ index, tab ->
+        tabs.forEachIndexed { index, tab ->
 
             LeadingIconTab(
                 icon = { Icon(painter = painterResource(id = tab.icon), contentDescription = "") },
@@ -101,7 +105,7 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState){
 
 @ExperimentalPagerApi
 @Composable
-fun TabsContent(tabs: List<TabItem>, pagerState: PagerState){
+fun TabsContent(tabs: List<TabItem>, pagerState: PagerState) {
     HorizontalPager(state = pagerState) { page ->
         tabs[page].screen()
     }
@@ -110,7 +114,9 @@ fun TabsContent(tabs: List<TabItem>, pagerState: PagerState){
 @Composable
 fun HomeScreen() {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.LightGray),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.LightGray),
         contentAlignment = Alignment.Center
 
     ) {
@@ -126,7 +132,9 @@ fun HomeScreen() {
 @Composable
 fun ProfileScreen() {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.Gray),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Gray),
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -141,7 +149,9 @@ fun ProfileScreen() {
 @Composable
 fun SettingsScreen() {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.DarkGray),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.DarkGray),
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -153,3 +163,8 @@ fun SettingsScreen() {
     }
 }
 
+@Preview
+@Composable
+fun Prev() {
+    HomeScreen()
+}
