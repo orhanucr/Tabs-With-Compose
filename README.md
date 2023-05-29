@@ -1,4 +1,4 @@
-# Tabs-With-Compose
+# Tabs With Compose
 
 <h2>Jetpack Compose UI App Example</h2>
 <p>Bu örnek projede, Jetpack Compose kullanılarak örnek bir uygulama arayüz sayfası geliştirilmiştir.</p>
